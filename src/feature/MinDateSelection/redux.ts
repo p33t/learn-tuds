@@ -12,7 +12,7 @@ export function startOfYesterday(): Date {
 }
 
 export const initialStateFn: () => SliceState = () => ({
-  selected: startOfYesterday().toISOString()
+  selected: startOfYesterday().toISOString().substring(0, 10)
 })
 
 export const slice = createAppSlice({
@@ -26,7 +26,7 @@ export const slice = createAppSlice({
         // do nothing
       }
       else {
-        state.selected = new Date(action.payload).toISOString()
+        state.selected = new Date(action.payload).toISOString().substring(0, 10)
       }
     })
   }),
