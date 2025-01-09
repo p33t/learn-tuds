@@ -16,7 +16,7 @@ describe<LocalTestContext>("MinDateSelection.redux", it => {
 
   it("should handle initial state", () => {
     expect(subject.slice.reducer(undefined, { type: "unknown" })).toStrictEqual({
-      selected: subject.startOfYesterday().toISOString()
+      selected: subject.startOfYesterday().toISOString().substring(0, 10)
     })
   })  
   
@@ -24,7 +24,7 @@ describe<LocalTestContext>("MinDateSelection.redux", it => {
     const previousState = subject.initialStateFn()
     const someDate = new Date(2025, 1, 8);
     expect(subject.slice.reducer(previousState, subject.selectDateMillis(someDate.getTime()))).toStrictEqual({
-      selected: someDate.toISOString()
+      selected: someDate.toISOString().substring(0, 10)
     })
   })  
 })
