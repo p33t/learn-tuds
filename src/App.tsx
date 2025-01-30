@@ -1,3 +1,4 @@
+import './init'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -6,12 +7,14 @@ import * as MinDateSelection from './feature/MinDateSelection'
 import React from 'react'
 import {Provider} from "react-redux";
 import {store} from "./app/store.ts";
+import alliumTheme from '@telus-uds/theme-allium'
+import {BaseProvider} from '@telus-uds/components-web'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <React.StrictMode><Provider store={store}>
+    <React.StrictMode><Provider store={store}><BaseProvider defaultTheme={alliumTheme}>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -35,7 +38,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </Provider></React.StrictMode>
+    </BaseProvider></Provider></React.StrictMode>
   )
 }
 
