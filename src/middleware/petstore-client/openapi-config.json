@@ -1,0 +1,8 @@
+{
+  "schemaFile": "https://petstore.swagger.io/v2/swagger.json",
+  "apiFile": "./base.ts",
+  "apiImport": "base",
+  "outputFile": "./generated.ts",
+  "exportName": "generated",
+  "hooks": true
+}
