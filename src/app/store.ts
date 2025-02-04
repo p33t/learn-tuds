@@ -3,10 +3,11 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
 import * as MinDateSelection from "../feature/MinDateSelection"
 import * as SearchTerm from "../feature/SearchTerm"
+import * as PetList from "../feature/PetList"
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
-const rootReducer = combineSlices(MinDateSelection.redux.slice, SearchTerm.redux.slice)
+const rootReducer = combineSlices(MinDateSelection.redux.slice, SearchTerm.redux.slice, PetList.redux.slice)
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>
 

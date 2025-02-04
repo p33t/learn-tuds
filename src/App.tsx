@@ -5,6 +5,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import * as MinDateSelection from './feature/MinDateSelection'
 import * as SearchTerm from './feature/SearchTerm'
+import * as PetList from './feature/PetList'
 import React from 'react'
 import {Provider} from "react-redux";
 import {store} from "./app/store.ts";
@@ -42,7 +43,8 @@ function App() {
       <p>
         <SearchTerm.Ui/>
       </p>
-      <p className="read-the-docs">
+      <p>
+        <PetList.Ui/>
       </p>
     </BaseProvider></Provider></React.StrictMode>
   )

@@ -9,4 +9,6 @@ declare module "@telus-uds/components-web" {
     type DatePickerProps = lib.DatePickerProps
     const BaseProvider : lib.BaseProvider
     const TextInput = lib.TextInput
+    const CheckBox = lib.Checkbox
+    const CheckboxGroup = lib.CheckboxGroup
 }
