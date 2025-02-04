@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import * as MinDateSelection from './feature/MinDateSelection'
+import * as SearchTerm from './feature/SearchTerm'
 import React from 'react'
 import {Provider} from "react-redux";
 import {store} from "./app/store.ts";
@@ -34,6 +35,9 @@ function App() {
       </div>
       <p>
         <MinDateSelection.Ui/>
+      </p>
+      <p>
+        <SearchTerm.Ui/>
       </p>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more

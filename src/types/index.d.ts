@@ -7,6 +7,6 @@ declare module "@telus-uds/components-web" {
     import * as lib from './telus-uds-components-web'
     const DatePicker: lib.DatePicker
     type DatePickerProps = lib.DatePickerProps
-    // const DatePickerProps: lib.DatePickerProps
-    const BaseProvider: lib.BaseProvider
+    const BaseProvider : lib.BaseProvider
+    const TextInput = lib.TextInput
 }
