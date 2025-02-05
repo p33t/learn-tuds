@@ -11,4 +11,5 @@ declare module "@telus-uds/components-web" {
     const TextInput = lib.TextInput
     const CheckBox = lib.Checkbox
     const CheckboxGroup = lib.CheckboxGroup
+    const Button = lib.Button
 }
