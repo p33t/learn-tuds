@@ -2,7 +2,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 // initialize an empty api service that we'll inject endpoints into later as needed
 export const base = createApi({
-  reducerPath: 'middleware/reqres-client',
+  reducerPath: 'middleware/petstore-client',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://petstore.swagger.io/v2',
     mode: "cors",
     // Custom headers example

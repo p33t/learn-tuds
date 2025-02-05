@@ -3,6 +3,10 @@
   "apiFile": "./base.ts",
   "apiImport": "base",
   "outputFile": "./generated.ts",
-  "exportName": "generated",
-  "hooks": true
+  "exportName": "api",
+  "hooks": {
+    "queries": true,
+    "lazyQueries": true,
+    "mutations": true
+  }
 }
