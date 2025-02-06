@@ -1,3 +1,18 @@
+Learn TELUS Universal Design System
+===================================
+This project is a learning tool for how to use https://www.npmjs.com/package/@telus-uds/components-web and other tech.
+
+Notes:
+- See the [./init.sh] script for bootstrapping development
+- Uses https://petstore.swagger.io/
+
+Features:
+- React with Redux Toolkit
+- Generated API client (using RTK/Query)
+
+---
+Original generated README content below...
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
