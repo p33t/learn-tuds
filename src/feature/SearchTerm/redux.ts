@@ -2,11 +2,11 @@ import type {PayloadAction} from "@reduxjs/toolkit"
 import {createAppSlice} from "../../app/createAppSlice"
 
 export interface SliceState {
-  searchTerm: string
+  term: string
 }
 
 export const initialStateFn: () => SliceState = () => ({
-  searchTerm: ""
+  term: ""
 })
 
 export const slice = createAppSlice({
@@ -15,11 +15,11 @@ export const slice = createAppSlice({
   reducers: create => ({
     /** Changes the search term used for querying */
     assignSearchTerm: create.reducer((state, action: PayloadAction<string>) => {
-      state.searchTerm = action.payload //.trim() // TODO: This 'trim' is a problem when typing
+      state.term = action.payload //.trim() // TODO: This 'trim' is a problem when typing
     })
   }),
   selectors: {
-    selectSearchTerm: state => state.searchTerm,
+    selectSearchTerm: state => state.term,
   },
 })
 
