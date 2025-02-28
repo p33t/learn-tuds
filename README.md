@@ -3,12 +3,16 @@ Learn TELUS Universal Design System
 This project is a learning tool for how to use https://www.npmjs.com/package/@telus-uds/components-web and other tech.
 
 Notes:
-- See the [./init.sh] script for bootstrapping development
+- See the [init.sh](./init.sh) script for bootstrapping development
 - Uses https://petstore.swagger.io/
 
 Features:
 - React with Redux Toolkit
 - Generated API client (using RTK/Query)
+
+Known Issues:
+- Unit tests don't run
+- API calls to PetStore only work with static build (and http-server). 'dev' mode launch does not.
 
 ---
 Original generated README content below...
