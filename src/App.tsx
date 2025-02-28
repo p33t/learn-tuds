@@ -37,15 +37,15 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p>
+      <div>
         <MinDateSelection.Ui/>
-      </p>
-      <p>
+      </div>
+      <div>
         <SearchTerm.Ui/>
-      </p>
-      <p>
+      </div>
+      <div>
         <PetList.Ui/>
-      </p>
+      </div>
     </BaseProvider></Provider></React.StrictMode>
   )
 }
