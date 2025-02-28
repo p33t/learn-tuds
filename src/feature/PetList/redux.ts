@@ -11,7 +11,7 @@ export const initialStateFn: () => SliceState = () => ({
 })
 
 export const slice = createAppSlice({
-  name: "searchTerm",
+  name: "petList",
   initialState: initialStateFn,
   reducers: create => ({
     /** Changes the petStatus list used for querying */
