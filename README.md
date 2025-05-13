@@ -12,7 +12,6 @@ Features:
 
 Known Issues:
 - Unit tests don't run
-- API calls to PetStore only work with static build (and http-server). 'dev' mode launch does not.
 
 ---
 Original generated README content below...
