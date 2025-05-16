@@ -1,5 +1,5 @@
 /node_modules/
 /.idea/
-/src/types/telus-uds-components-web/
+/src/types/*/
 /src/middleware/*/generated.ts
 /dist/
