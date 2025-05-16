@@ -12,4 +12,5 @@ declare module "@telus-uds/components-web" {
     const CheckBox = lib.Checkbox
     const CheckboxGroup = lib.CheckboxGroup
     const Button = lib.Button
+    const Listbox: any // The types are not present
 }
