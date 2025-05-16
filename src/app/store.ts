@@ -3,7 +3,7 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
 import * as MinDateSelection from "../feature/MinDateSelection"
 import * as SearchTerm from "../feature/SearchTerm"
-import * as PetList from "../feature/PetList"
+import * as PetList from "../feature/Pet/List"
 import * as PetStore from "../middleware/petstore-client"
 
 // `combineSlices` automatically combines the reducers using

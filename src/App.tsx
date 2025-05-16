@@ -9,7 +9,7 @@ import {store} from "./app/store.ts";
 import alliumTheme from '@telus-uds/theme-allium'
 import {BaseProvider} from '@telus-uds/components-web'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
-import * as PetList from "./feature/PetList";
+import * as PetList from "./feature/Pet/List";
 import * as PetDetail from "./feature/Pet/Detail";
 
 

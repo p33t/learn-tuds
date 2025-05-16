@@ -1,9 +1,9 @@
 import {Button, CheckboxGroup} from "@telus-uds/components-web";
 import * as redux from "./redux"
-import {useAppDispatch, useAppSelector} from "../../app/hooks.ts";
-import * as PetStore from "../../middleware/petstore-client";
+import {useAppDispatch, useAppSelector} from "../../../app/hooks.ts";
+import * as PetStore from "../../../middleware/petstore-client";
 import {useEffect, useState} from "react";
-import {Pet} from "../../middleware/petstore-client";
+import {Pet} from "../../../middleware/petstore-client";
 import {Link} from "react-router-dom";
 
 /** Performs listing of Pets (based on 'status') */
