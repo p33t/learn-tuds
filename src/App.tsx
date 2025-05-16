@@ -9,6 +9,8 @@ import {store} from "./app/store.ts";
 import alliumTheme from '@telus-uds/theme-allium'
 import {BaseProvider} from '@telus-uds/components-web'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
+import * as PetList from "./feature/PetList";
+import * as PetDetail from "./feature/Pet/Detail";
 
 
 interface SkeletonProps {
@@ -41,6 +43,8 @@ function App() {
                 ),
                 children: [
                     {path: "/", element: <Home.Ui/>},
+                    {path: "/pet/list", element: <PetList.Ui/>},
+                    {path: "/pet/detail/:id", element: <PetDetail.Ui/>},
                     {path: "/about", element: <About.Ui/>}
                 ],
             },

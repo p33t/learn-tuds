@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 export const Ui = ({baseRoute}: Sidebar.Props) => (
     <div style={{width: "200px"}}>
         <Link to={`${baseRoute}/`}>Home</Link><br/>
+        <Link to={`${baseRoute}/pet/list`}>Pets</Link><br/>
         <Link to={`${baseRoute}/about`}>About</Link><br/>
         
         {/*Need to switch to LinkRouter technique to avoid page reloads but don't know how*/}

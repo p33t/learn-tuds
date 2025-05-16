@@ -3,7 +3,6 @@ import viteLogo from "/vite.svg";
 import reactLogo from "../../assets/react.svg";
 import * as MinDateSelection from "../MinDateSelection";
 import * as SearchTerm from "../SearchTerm";
-import * as PetList from "../PetList";
 
 /** Home page UI */
 export const Ui = () => {
@@ -35,9 +34,6 @@ export const Ui = () => {
         </div>
         <div>
             <SearchTerm.Ui/>
-        </div>
-        <div>
-            <PetList.Ui/>
         </div>
     </>)
 }
