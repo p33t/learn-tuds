@@ -4,10 +4,11 @@ import {useAppDispatch, useAppSelector} from "../../../app/hooks.ts";
 import * as PetStore from "../../../middleware/petstore-client";
 import {useEffect, useState} from "react";
 import {Pet} from "../../../middleware/petstore-client";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 /** Performs listing of Pets (based on 'status') */
 export const Ui = () => {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch()
     const petStatusArr = useAppSelector(redux.selectPetStatus)
     const [trigger, {data, isError, isLoading}] = PetStore.api.useLazyFindPetsByStatusQuery()
@@ -30,6 +31,10 @@ export const Ui = () => {
         trigger({status: petStatusArr})
     }
     
+    function onAddClick() {
+        navigate('/pet/add')
+    }
+    
     return (
         <>
             <CheckboxGroup
@@ -37,7 +42,7 @@ export const Ui = () => {
                 checkedIds={petStatusArr}
                 onChange={(checkedIds: typeof petStatusArr) => dispatch(redux.assignPetStatusArr(checkedIds))}
             />
-            <Button onPress={onLoadClick}>Load</Button>
+            <Button onPress={onLoadClick}>Load</Button> <Button onPress={onAddClick}>Add</Button>
             
             { isLoading &&  <p>Loading...</p> }
             

@@ -10,6 +10,7 @@ import alliumTheme from '@telus-uds/theme-allium'
 import {BaseProvider} from '@telus-uds/components-web'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import * as PetList from "./feature/Pet/List";
+import * as PetAdd from "./feature/Pet/Add";
 import * as PetDetail from "./feature/Pet/Detail";
 
 
@@ -44,6 +45,7 @@ function App() {
                 children: [
                     {path: "/", element: <Home.Ui/>},
                     {path: "/pet/list", element: <PetList.Ui/>},
+                    {path: "/pet/add", element: <PetAdd.Ui/>},
                     {path: "/pet/detail/:id", element: <PetDetail.Ui/>},
                     {path: "/about", element: <About.Ui/>}
                 ],
