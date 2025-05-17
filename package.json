@@ -16,6 +16,7 @@
     "@telus-uds/components-web": "^4.5.1",
     "@telus-uds/palette-allium": "^5.3.3",
     "@telus-uds/theme-allium": "^7.7.0",
+    "formik": "^2.4.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.2.0",
