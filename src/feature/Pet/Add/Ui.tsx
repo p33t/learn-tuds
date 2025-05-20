@@ -101,6 +101,17 @@ export const Ui: React.FC = () => {
                     </FlexGrid.Col>
                 </FlexGrid.Row>
                 <FlexGrid.Row>
+                    <FlexGrid.Col xs={3}>
+                        <label htmlFor="status">Status</label>
+                    </FlexGrid.Col>
+                    <FlexGrid.Col xs={6}>
+                        <Field name="status" as="select">
+                            { PetStatusNames.map(status => <option key={status} value={status}>{status}</option>) }
+                        </Field>                        
+                        <ErrorMessage name="status"/>
+                    </FlexGrid.Col>
+                </FlexGrid.Row>
+                <FlexGrid.Row>
                     <FlexGrid.Col>
                         <button type="submit">Submit</button>
                     </FlexGrid.Col>
