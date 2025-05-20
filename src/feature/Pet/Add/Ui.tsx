@@ -1,10 +1,11 @@
 // import * as PetStore from "../../../middleware/petstore-client";
 // import {useEffect} from "react";
 // import {useParams} from "react-router-dom";
-import {Formik} from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import {PetStatus, PetStatusNames} from "../../../middleware/petstore-client";
 import {FlexGrid} from "@telus-uds/components-web";
 import * as Yup from 'yup';
+import React from "react";
 
 interface FormValues {
     id: number,
@@ -14,7 +15,7 @@ interface FormValues {
 }
 
 /** Adds a new Pet */
-export const Ui = () => {
+export const Ui: React.FC = () => {
     // const [trigger, {data, isError, isLoading}] = PetStore.api.useAddPetMutation()
     // const {id} = useParams<{ id: string }>();
 
@@ -63,6 +64,7 @@ export const Ui = () => {
     return (<Formik initialValues={initialValues}
                     validationSchema={Yup.object({
                         name: Yup.string()
+                            .min(3, 'Min is 3 characters')
                             .max(15, 'Must be 15 characters or less')
                             .required('Required'),
                         category: Yup.string()
@@ -72,43 +74,38 @@ export const Ui = () => {
                     onSubmit={values => {
                         alert(JSON.stringify(values, null, 2));
                     }}>
-        {formik => (
-            <form onSubmit={formik.handleSubmit}>
-                <FlexGrid>
-                    <FlexGrid.Row>
-                        <FlexGrid.Col xs={3}>
-                            <label htmlFor="name">Name</label>
-                        </FlexGrid.Col>
-                        <FlexGrid.Col xs={6}>
-                            <input
-                                id="name"
-                                type="text"
-                                {...formik.getFieldProps('name')}
-                            />
-                            {formik.touched.name && formik.errors.name ? <div>{formik.errors.name}</div> : null}
-                        </FlexGrid.Col>
-                    </FlexGrid.Row>
-                    <FlexGrid.Row>
-                        <FlexGrid.Col xs={3}>
-                            <label htmlFor="category">Category</label>
-                        </FlexGrid.Col>
-                        <FlexGrid.Col xs={6}>
-                            <input
-                                id="category"
-                                type="text"
-                                {...formik.getFieldProps('category')}
-                            />
-                            {formik.touched.category && formik.errors.category ?
-                                <div>{formik.errors.category}</div> : null}
-                        </FlexGrid.Col>
-                    </FlexGrid.Row>
-                    <FlexGrid.Row>
-                        <FlexGrid.Col>
-                            <button type="submit">Submit</button>
-                        </FlexGrid.Col>
-                    </FlexGrid.Row>
-                </FlexGrid>
-            </form>
-        )}
+        <Form>
+            <FlexGrid>
+                <FlexGrid.Row>
+                    <FlexGrid.Col xs={3}>
+                        <label htmlFor="name">Name</label>
+                    </FlexGrid.Col>
+                    <FlexGrid.Col xs={6}>
+                        <Field
+                            name="name"
+                            type="text"
+                        />
+                        <ErrorMessage name="name"/>
+                    </FlexGrid.Col>
+                </FlexGrid.Row>
+                <FlexGrid.Row>
+                    <FlexGrid.Col xs={3}>
+                        <label htmlFor="category">Category</label>
+                    </FlexGrid.Col>
+                    <FlexGrid.Col xs={6}>
+                        <Field
+                            name="category"
+                            type="text"
+                        />
+                        <ErrorMessage name="category"/>
+                    </FlexGrid.Col>
+                </FlexGrid.Row>
+                <FlexGrid.Row>
+                    <FlexGrid.Col>
+                        <button type="submit">Submit</button>
+                    </FlexGrid.Col>
+                </FlexGrid.Row>
+            </FlexGrid>
+        </Form>
     </Formik>)
 }
