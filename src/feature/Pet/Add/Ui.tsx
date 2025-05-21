@@ -71,10 +71,12 @@ export const Ui: React.FC = () => {
                             .max(20, 'Must be 20 characters or less')
                             .required('Required')
                     })}
-                    onSubmit={values => {
+                    onSubmit={(values, {setSubmitting}) => {
                         alert(JSON.stringify(values, null, 2));
+                        // Trying to see the submit button disable/enable
+                        setTimeout(() => setSubmitting(false), 3000);
                     }}>
-        <Form>
+        {formik => (<Form>
             <FlexGrid>
                 <FlexGrid.Row>
                     <FlexGrid.Col xs={3}>
@@ -113,10 +115,10 @@ export const Ui: React.FC = () => {
                 </FlexGrid.Row>
                 <FlexGrid.Row>
                     <FlexGrid.Col>
-                        <button type="submit">Submit</button>
+                        <button type="submit" disabled={formik.isSubmitting}>Submit</button>
                     </FlexGrid.Col>
                 </FlexGrid.Row>
             </FlexGrid>
-        </Form>
+        </Form>)}
     </Formik>)
 }
