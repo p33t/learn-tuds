@@ -12,4 +12,6 @@ declare module "@telus-uds/components-web" {
     const CheckBox = lib.Checkbox
     const CheckboxGroup = lib.CheckboxGroup
     const Button = lib.Button
+    const Listbox = lib.Listbox
+    const FlexGrid = lib.FlexGrid
 }

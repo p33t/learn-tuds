@@ -1,6 +1,6 @@
 import type {PayloadAction} from "@reduxjs/toolkit"
-import {createAppSlice} from "../../app/createAppSlice"
-import * as PetStore from "../../middleware/petstore-client";
+import {createAppSlice} from "../../../app/createAppSlice"
+import * as PetStore from "../../../middleware/petstore-client";
 
 export interface SliceState {
   petStatusArr: PetStore.FindPetsByStatusApiArg['status']
