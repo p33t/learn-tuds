@@ -1,19 +1,13 @@
-import * as Sidebar from "./index.ts";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {SideNav} from "@telus-uds/components-web";
 
 /** Sidebar for navigation */
-export const Ui = ({baseRoute}: Sidebar.Props) => (
-    <div style={{width: "200px"}}>
-        <Link to={`${baseRoute}/`}>Home</Link><br/>
-        <Link to={`${baseRoute}/pet/list`}>Pets</Link><br/>
-        <Link to={`${baseRoute}/about`}>About</Link><br/>
-        
-        {/*Need to switch to LinkRouter technique to avoid page reloads but don't know how*/}
-        {/*import {Listbox} from "@telus-uds/components-web";*/}
-        {/*<Listbox*/}
-        {/*    items={[*/}
-        {/*        {label: "Home", href: `${baseRoute}/`},*/}
-        {/*        {label: "About", href: `${baseRoute}/about`}*/}
-        {/*    ]}/>*/}
-    </div>
-)
+export const Ui = () => {
+    const navigate = useNavigate()
+    
+    return (<SideNav style={{width: "200px", height: "100%"}}>
+        <SideNav.Item onPress={() => navigate('/')}>Home</SideNav.Item>
+        <SideNav.Item onPress={() => navigate('/pet/list')}>Pets</SideNav.Item>
+        <SideNav.Item onPress={() => navigate('/about')}>About</SideNav.Item>
+    </SideNav>)
+}
