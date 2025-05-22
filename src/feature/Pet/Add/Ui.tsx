@@ -5,7 +5,8 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import {PetStatus, PetStatusNames} from "../../../middleware/petstore-client";
 import {FlexGrid} from "@telus-uds/components-web";
 import * as Yup from 'yup';
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {useBeforeUnload, useBlocker, useNavigate} from "react-router-dom";
 
 interface FormValues {
     id: number,
@@ -36,7 +37,7 @@ export const Ui: React.FC = () => {
     //
     //     return errors;
     // };
-    
+
     // Before <Formik> tag
     // const formik = useFormik<FormValues>({
     //     initialValues: {
@@ -59,7 +60,36 @@ export const Ui: React.FC = () => {
     //     },
     // });
 
-    const initialValues: FormValues = { id: 0, name: '', category: '', status: PetStatusNames[0] };
+    const initialValues: FormValues = {id: 0, name: '', category: '', status: PetStatusNames[0]};
+
+    const navigate = useNavigate()
+    const [isDirty, setIsDirty] = useState(false)
+
+    // This only works for full reloads
+    useBeforeUnload(
+        (event) => {
+            if (isDirty) {
+                event.preventDefault();
+                // For legacy browsers
+                return "Abandon changes?";
+            }
+            return null
+        }
+    );
+    
+    // for navigation (without full reload)
+    useBlocker(() => {
+        var allow = true;
+        if (isDirty) {
+            allow = confirm("Abandon changes?")
+        }
+        return !allow
+    })
+    
+    // for troubleshooting
+    useEffect(() => {
+        console.log(`Dirty is now ${isDirty}`)
+    }, [isDirty]);
 
     return (<Formik initialValues={initialValues}
                     validationSchema={Yup.object({
@@ -71,6 +101,11 @@ export const Ui: React.FC = () => {
                             .max(20, 'Must be 20 characters or less')
                             .required('Required')
                     })}
+                    validate={(values) => {
+                        // TODO: Find a cleaner way to deep compare
+                        setIsDirty(!(values.name === initialValues.name && values.category === initialValues.category))
+                        return {}
+                    }}
                     onSubmit={(values, {setSubmitting}) => {
                         alert(JSON.stringify(values, null, 2));
                         // Trying to see the submit button disable/enable
@@ -116,6 +151,7 @@ export const Ui: React.FC = () => {
                 <FlexGrid.Row>
                     <FlexGrid.Col>
                         <button type="submit" disabled={formik.isSubmitting}>Submit</button>
+                        <button type="button" onClick={() => navigate('/pet/list')} >Cancel</button>
                     </FlexGrid.Col>
                 </FlexGrid.Row>
             </FlexGrid>
