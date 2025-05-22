@@ -18,10 +18,10 @@ interface SkeletonProps {
     baseRoute?: string;
 }
 
-const Skeleton: React.FC<SkeletonProps> = ({baseRoute}) => {
+const Skeleton: React.FC<SkeletonProps> = () => {
     return (
         <div className="main">
-            <Sidebar.Ui baseRoute={baseRoute || ""}/>
+            <Sidebar.Ui/>
             <div className="children">
                 <Outlet/>
             </div>
