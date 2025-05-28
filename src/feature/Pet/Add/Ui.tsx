@@ -3,10 +3,10 @@
 // import {useParams} from "react-router-dom";
 import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
 import {PetStatus, PetStatusNames} from "../../../middleware/petstore-client";
-import {FlexGrid} from "@telus-uds/components-web";
+import {Box, FlexGrid, Modal, Typography} from "@telus-uds/components-web";
 import * as Yup from 'yup';
-import React from "react";
-import {useBeforeUnload, useBlocker, useNavigate} from "react-router-dom";
+import React, {useState} from "react";
+import {Blocker, useBeforeUnload, useBlocker, useNavigate} from "react-router-dom";
 
 interface FormValues {
     id: number,
@@ -71,12 +71,17 @@ export const Ui: React.FC = () => {
                 .max(20, 'Must be 20 characters or less')
                 .required('Required')
         }),
-        onSubmit: (values, {setSubmitting}) => {
+        onSubmit: (values, {setSubmitting, setStatus, resetForm}) => {
             alert(JSON.stringify(values, null, 2));
-            // Trying to see the submit button disable/enable
-            setTimeout(() => setSubmitting(false), 3000);
+            setSubmitting(false)
+            setStatus({success: true})
+            resetForm()
+            setTimeout(() => {
+                navigate('/pet/list')
+            }, 500);
         }
     })
+    let blocker = useBlocker(() => formik.dirty)
 
     const navigate = useNavigate()
 
@@ -91,16 +96,7 @@ export const Ui: React.FC = () => {
             return null
         }
     );
-
-    // for navigation (without full reload)
-    useBlocker(() => {
-        var allow = true;
-        if (formik.dirty) {
-            allow = confirm("Abandon changes?")
-        }
-        return !allow
-    })
-
+    
     return (<FormikProvider value={formik}>
         <Form>
             <FlexGrid>
@@ -147,5 +143,15 @@ export const Ui: React.FC = () => {
                 </FlexGrid.Row>
             </FlexGrid>
         </Form>
+        {blocker?.state === 'blocked' && (<Modal  isOpen={blocker?.state === 'blocked'} onClose={() => blocker.reset()}>
+            <Box vertical={4}>
+                <Typography>
+                    There are unsaved changes
+                </Typography>
+                <button type='button' onClick={() => blocker.reset()}>Stay</button>
+                <button type='button' onClick={() => blocker.proceed()}>Abandon Changes</button>
+            </Box>
+            
+        </Modal>)}
     </FormikProvider>)
 }
