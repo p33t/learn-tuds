@@ -11,7 +11,9 @@ declare module "@telus-uds/components-web" {
     const CheckBox = lib.Checkbox
     const CheckboxGroup = lib.CheckboxGroup
     const DatePicker: lib.DatePicker
+    const FileUpload = lib.FileUpload
     const FlexGrid = lib.FlexGrid
+    const Image = lib.Image
     const Listbox = lib.Listbox
     const Modal = lib.Modal
     const SideNav = lib.SideNav

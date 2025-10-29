@@ -12,6 +12,7 @@ import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import * as PetList from "./feature/Pet/List";
 import * as PetAdd from "./feature/Pet/Add";
 import * as PetDetail from "./feature/Pet/Detail";
+import {ImageUpload} from './feature/ImageUpload/ImageUpload.tsx'
 
 
 interface SkeletonProps {
@@ -49,6 +50,7 @@ function App() {
                     {path: "/pet/list", element: <PetList.Ui/>},
                     {path: "/pet/add", element: <PetAdd.Ui/>},
                     {path: "/pet/detail/:id", element: <PetDetail.Ui/>},
+                    {path: "/imageUpload", element: <ImageUpload/>},
                     {path: "/about", element: <About.Ui/>}
                 ],
             },
