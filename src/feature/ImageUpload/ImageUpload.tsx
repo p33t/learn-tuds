@@ -3,7 +3,7 @@ import {FileUpload} from '@telus-uds/components-web'
 
 export const ImageUpload: FunctionComponent = () => {
     const [selectedFile, setSelectedFile] = React.useState<File>()
-    const onUpload = async (files: any[]) => {
+    const onUpload = async (files: FileList) => {
         console.log('Uploading files:', files)
         let error = "";
         if (files.length === 1) {
@@ -19,11 +19,6 @@ export const ImageUpload: FunctionComponent = () => {
         else {
             error = `Expected 1 file, but got ${files.length}`
         }
-        // return new Promise((resolve) => {
-        //     setTimeout(() => {
-        //         resolve(files)
-        //     }, 500)
-        // })
         
         if (error === "") {
             // success
@@ -36,11 +31,8 @@ export const ImageUpload: FunctionComponent = () => {
 
     const onDelete = async (file: any) => {
         console.log('Deleting file:', file)
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(file)
-            }, 500)
-        })
+        setSelectedFile(undefined)
+        return Promise.resolve(file)
     }
 
     return (<>
