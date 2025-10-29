@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from 'react'
-import {FileUpload} from '@telus-uds/components-web'
+import {FileUpload, Image} from '@telus-uds/components-web'
 
 export const ImageUpload: FunctionComponent = () => {
     const [selectedFile, setSelectedFile] = React.useState<File>()
@@ -15,16 +15,15 @@ export const ImageUpload: FunctionComponent = () => {
             } else {
                 error = `invalid type '${fileType}'; only image files are allowed`
             }
-        }
-        else {
+        } else {
             error = `Expected 1 file, but got ${files.length}`
         }
-        
+
         if (error === "") {
             // success
             return Promise.resolve(files)
         }
-        
+
         // error
         return Promise.resolve([{error: error}])
     }
@@ -48,6 +47,7 @@ export const ImageUpload: FunctionComponent = () => {
                 onUpload={onUpload}
                 onDelete={onDelete}
             />
+            {selectedFile && <Image src={URL.createObjectURL(selectedFile)} alt="Uploaded Image" width={200}/>}
         </>
     )
 }
