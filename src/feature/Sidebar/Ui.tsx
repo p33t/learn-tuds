@@ -5,7 +5,7 @@ import {SideNav} from "@telus-uds/components-web";
 export const Ui = () => {
     const navigate = useNavigate()
     
-    return (<SideNav style={{width: "200px", height: "100%"}}>
+    return (<SideNav>
         <SideNav.Item onPress={() => navigate('/')}>Home</SideNav.Item>
         <SideNav.Item onPress={() => navigate('/pet/list')}>Pets</SideNav.Item>
         <SideNav.Item onPress={() => navigate('/about')}>About</SideNav.Item>

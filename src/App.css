@@ -42,10 +42,10 @@
 }
 
 .main {
-  display: flex;
-  flex-direction: row;
-  background-color: lightgrey;
-  margin: 0px;
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*background-color: lightgrey;*/
+  /*margin: 0px;*/
 }
 
 .children {

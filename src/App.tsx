@@ -20,9 +20,11 @@ interface SkeletonProps {
 
 const Skeleton: React.FC<SkeletonProps> = () => {
     return (
-        <div className="main">
-            <Sidebar.Ui/>
-            <div className="children">
+        <div className="App" style={{height: "100%", width: '100%', display: 'flex', flexDirection: 'row'}}>
+            <div style={{height: "100%", display: 'flex', flexDirection: 'column'}}>
+                <Sidebar.Ui/>
+            </div>
+            <div style={{flexGrow: 1}}>
                 <Outlet/>
             </div>
         </div>

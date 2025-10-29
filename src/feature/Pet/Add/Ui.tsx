@@ -5,8 +5,8 @@ import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
 import {PetStatus, PetStatusNames} from "../../../middleware/petstore-client";
 import {Box, FlexGrid, Modal, Typography} from "@telus-uds/components-web";
 import * as Yup from 'yup';
-import React, {useState} from "react";
-import {Blocker, useBeforeUnload, useBlocker, useNavigate} from "react-router-dom";
+import React from "react";
+import {useBeforeUnload, useBlocker, useNavigate} from "react-router-dom";
 
 interface FormValues {
     id: number,
